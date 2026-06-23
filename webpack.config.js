@@ -44,16 +44,29 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-          },'postcss-loader'
+          },
+          'postcss-loader',
         ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // путь к файлу index.html
+      template: './src/index.html',
+      filename: 'index.html',
     }),
+
+    new HtmlWebpackPlugin({
+      template: './src/kuhni.html',
+      filename: 'kuhni.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/balkony.html',
+      filename: 'balkony.html',
+    }),
+
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({filename: 'css/style.css',}),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
   ],
 };
