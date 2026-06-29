@@ -21,7 +21,7 @@ export const modal = () => {
   };
 
   const closeModalByOverlay = (e) => {
-        const openedModal = document.querySelector('.modal-opened');
+    const openedModal = document.querySelector('.modal-opened');
     if (e.target === overlay) {
       closeModal(openedModal);
     }
@@ -57,7 +57,4 @@ export const modal = () => {
     if (!cardImg) return;
     openImageModal(cardImg);
   });
-
-
-console.log(imageModalImage);
 };
