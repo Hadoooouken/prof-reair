@@ -6,7 +6,6 @@ export const modal = () => {
   const overlay = document.querySelector('.overlay');
   const documentsSection = document.querySelector('#documents');
   const servicesModal = document.querySelector('.services-modal');
-  console.log(closeButtonAll);
   const imageModal = document.querySelector('.image-popup');
   const imageModalImage = imageModal.querySelector('.popup__image');
 

@@ -7,6 +7,7 @@ import { modal } from './modules/modal';
 import { slider } from './modules/slider';
 import { timer } from './modules/timer';
 import { smothScroll } from './modules/smothScroll';
+import { calculator } from './modules/calculator';
 
 modal();
 slider({
@@ -30,3 +31,4 @@ slider({
 
 timer('28 jule 2026');
 smothScroll();
+calculator()
