@@ -8,6 +8,7 @@ import { slider } from './modules/slider';
 import { timer } from './modules/timer';
 import { smothScroll } from './modules/smothScroll';
 import { calculator } from './modules/calculator';
+import { validation } from './modules/validation';
 
 modal();
 slider({
@@ -31,4 +32,8 @@ slider({
 
 timer('28 jule 2026');
 smothScroll();
-calculator()
+calculator();
+validation();
+
+// const phoneInputAll = document.querySelectorAll('input[name=phone]');
+// console.log(phoneInputAll);
