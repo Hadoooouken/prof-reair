@@ -20,7 +20,7 @@ export const calculator = () => {
       return;
     }
     const res = calcSquareValue * calcTypeValue * calcWindowTypeValue;
-    calcTotal.value = res;
+    calcTotal.value = res.toFixed(2);
     return res;
   };
 

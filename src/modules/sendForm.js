@@ -1,6 +1,6 @@
 export const sendForm = (onSuccess) => {
   const forms = document.querySelectorAll('form');
-
+  const calculatorResult = document.querySelector('#calc-total');
   const validate = (list) => {
     let success = true;
 
@@ -10,6 +10,12 @@ export const sendForm = (onSuccess) => {
       }
     });
     return success;
+  };
+
+  const clearForm = (formElements) => {
+    formElements.forEach((input) => {
+      input.classList.remove('success', 'error');
+    });
   };
 
   const sendFormToApi = (body) => {
@@ -32,13 +38,19 @@ export const sendForm = (onSuccess) => {
       const formInput = form.querySelectorAll('input:not([type="hidden"])');
       e.preventDefault();
       if (validate(formInput)) {
-        const body = Object.fromEntries(new FormData(form));
+        const formData = new FormData(form);
+        if (calculatorResult && calculatorResult.value) {
+          formData.append('calculator-res', calculatorResult.value);
+        }
+
+        const body = Object.fromEntries(formData);
+        console.log(body);
         sendFormToApi(body)
           .then((data) => {
+            clearForm(formInput);
             form.reset();
             onSuccess();
           })
-
           .catch((error) => {
             console.error(error);
           });
