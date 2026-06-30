@@ -1,7 +1,16 @@
 export const sendForm = (onSuccess) => {
   const forms = document.querySelectorAll('form');
   const calculatorResult = document.querySelector('#calc-total');
-  
+  const loader = document.querySelector('#loader');
+
+  const addPreloader = () => {
+    loader.classList.remove('hidden');
+  };
+
+  const removePreloader = () => {
+    loader.classList.add('hidden');
+  };
+
   const validate = (list) => {
     let success = true;
     list.forEach((input) => {
@@ -44,12 +53,16 @@ export const sendForm = (onSuccess) => {
         }
 
         const body = Object.fromEntries(formData);
-        console.log(body);
+
+        addPreloader();
         sendFormToApi(body)
           .then((data) => {
             clearForm(formInput);
             form.reset();
             onSuccess();
+          })
+          .finally(() => {
+            removePreloader();
           })
           .catch((error) => {
             console.error(error);
