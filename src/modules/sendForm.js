@@ -1,9 +1,9 @@
 export const sendForm = (onSuccess) => {
   const forms = document.querySelectorAll('form');
   const calculatorResult = document.querySelector('#calc-total');
+  
   const validate = (list) => {
     let success = true;
-
     list.forEach((input) => {
       if (!input.classList.contains('success')) {
         success = false;
@@ -40,7 +40,7 @@ export const sendForm = (onSuccess) => {
       if (validate(formInput)) {
         const formData = new FormData(form);
         if (calculatorResult && calculatorResult.value) {
-          formData.append('calculator-res', calculatorResult.value);
+          formData.append('calculator-total', calculatorResult.value);
         }
 
         const body = Object.fromEntries(formData);

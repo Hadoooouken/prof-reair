@@ -10,6 +10,7 @@ import { calculator } from './modules/calculator';
 import { validation } from './modules/validation';
 import { sendForm } from './modules/sendForm';
 import { smoothScroll } from './modules/smoothScroll';
+import { reviews } from './modules/reviews';
 
 slider({
   sliderTrack: '.service-slider__track',
@@ -39,3 +40,7 @@ sendForm(() => {
   const openedModal = document.querySelector('.modal-opened');
   closeModal(openedModal);
 });
+reviews();
+
+
+
