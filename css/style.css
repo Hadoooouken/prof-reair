@@ -14,9 +14,7 @@ h2 span {
 }
 h3 {
   text-transform: uppercase;
-
 }
-
 
 .text-normal {
   font-family: 'NeoSansCyr-Medium', sans-serif !important;
@@ -1531,32 +1529,25 @@ input.error {
 .potolki .order {
   background: url(../images/order5-bg.jpg) no-repeat center;
 }
+.services-modal,
 .header-modal {
-  display: none;
-}
-
-.services-modal {
-  display: none;
-}
-
-.services-modal--opened {
+  visibility:hidden;
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
+  transition: 0.3s;
 }
+
 
 .modal-opened {
-  display: flex;
-}
-
-.header-modal--opened {
-  position: fixed;
+  visibility:visible;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .header-modal__close {
@@ -1704,7 +1695,7 @@ input.error {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition:0.3s
+  transition: 0.3s;
 }
 
 .image-popup.modal-opened {
@@ -1720,15 +1711,13 @@ input.error {
   object-fit: contain;
 }
 
-
-
 .service-slider {
   overflow: hidden;
 }
 
 .service-slider__track {
   display: flex;
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
 }
 
 .service-slider__track > .col-xs-12 {
@@ -1771,5 +1760,3 @@ input.error {
     width: 50%;
   }
 }
-
-

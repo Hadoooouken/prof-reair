@@ -36,7 +36,7 @@ export const sendForm = (onSuccess) => {
         sendFormToApi(body)
           .then((data) => {
             form.reset();
-            onSuccess()
+            onSuccess();
           })
 
           .catch((error) => {

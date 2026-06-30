@@ -1,5 +1,7 @@
 export const closeModal = (modal) => {
   const overlay = document.querySelector('.overlay');
+
+  if (!modal) return;
   overlay.classList.remove('overlay--opened');
   modal.classList.remove('modal-opened');
   window.removeEventListener('keydown', closeModalByEsc);
