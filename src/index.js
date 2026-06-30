@@ -3,14 +3,14 @@ import '../css/animate.css';
 import '../fonts/font.css';
 import '../css/style.css';
 
-import { modal } from './modules/modal';
+import { closeModal, modal } from './modules/modal';
 import { slider } from './modules/slider';
 import { timer } from './modules/timer';
-import { smothScroll } from './modules/smothScroll';
 import { calculator } from './modules/calculator';
 import { validation } from './modules/validation';
+import { sendForm } from './modules/sendForm';
+import { smoothScroll } from './modules/smoothScroll';
 
-modal();
 slider({
   sliderTrack: '.service-slider__track',
   sliderArrows: '.services-arrows',
@@ -30,10 +30,12 @@ slider({
   allSliderItems: '.benefits__item',
 });
 
+modal();
 timer('28 jule 2026');
-smothScroll();
+smoothScroll();
 calculator();
 validation();
-
-// const phoneInputAll = document.querySelectorAll('input[name=phone]');
-// console.log(phoneInputAll);
+sendForm(() => {
+  const openedModal = document.querySelector('.modal-opened');
+  closeModal(openedModal);
+});

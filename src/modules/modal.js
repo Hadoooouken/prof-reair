@@ -1,3 +1,17 @@
+export const closeModal = (modal) => {
+  const overlay = document.querySelector('.overlay');
+  overlay.classList.remove('overlay--opened');
+  modal.classList.remove('modal-opened');
+  window.removeEventListener('keydown', closeModalByEsc);
+};
+
+const closeModalByEsc = (e) => {
+  const openedModal = document.querySelector('.modal-opened');
+  if (openedModal && e.key === 'Escape') {
+    closeModal(openedModal);
+  }
+};
+
 export const modal = () => {
   const headerModal = document.querySelector('.header-modal');
   const serviceCardContainer = document.querySelector('.service-slider__track');
@@ -12,42 +26,31 @@ export const modal = () => {
   const openModal = (modal) => {
     overlay.classList.add('overlay--opened');
     modal.classList.add('modal-opened');
-    window.addEventListener('keydown', closeModalByEsc);
-  };
 
-  const closeModal = (modal) => {
-    overlay.classList.remove('overlay--opened');
-    modal.classList.remove('modal-opened');
-    window.removeEventListener('keydown', closeModalByEsc);
+    window.addEventListener('keydown', closeModalByEsc);
   };
 
   const closeModalByOverlay = (e) => {
     const openedModal = document.querySelector('.modal-opened');
+
     if (e.target === overlay) {
       closeModal(openedModal);
     }
   };
 
-  const closeModalByEsc = (e) => {
-    const openedModal = document.querySelector('.modal-opened');
-    if (openedModal && e.key === 'Escape') {
-      closeModal(openedModal);
-    }
+  const openImageModal = (card) => {
+    imageModalImage.src = card.href;
+    openModal(imageModal);
   };
 
-  function openImageModal(card) {
-    imageModalImage.src = card.href;
-
-    openModal(imageModal);
-  }
-
-  modalButton.addEventListener('click', (e) => {
+  modalButton.addEventListener('click', () => {
     openModal(headerModal);
   });
 
-  closeButtonAll.forEach((closeButton) => {
-    closeButton.addEventListener('click', (e) => {
+  closeButtonAll.forEach((button) => {
+    button.addEventListener('click', (e) => {
       const modal = e.target.closest('.modal-opened');
+
       if (modal) {
         closeModal(modal);
       }
@@ -66,7 +69,9 @@ export const modal = () => {
     e.preventDefault();
 
     const cardImg = e.target.closest('.sertificate-document');
+
     if (!cardImg) return;
+
     openImageModal(cardImg);
   });
 };

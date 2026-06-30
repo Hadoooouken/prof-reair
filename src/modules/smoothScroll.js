@@ -1,4 +1,4 @@
-export const smothScroll = () => {
+export const smoothScroll = () => {
   const headerBlock = document.querySelector('#header');
 
   const serviceBtn = document.querySelector('.smooth-scroll');

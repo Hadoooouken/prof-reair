@@ -8,7 +8,6 @@ export const validation = () => {
 
     element.classList.toggle('success', isValid);
     element.classList.toggle('error', !isValid);
-    console.log(isValid);
     return isValid;
   };
 
